@@ -34,8 +34,8 @@ jobs:
           username: ${{ secrets.REMOTE_USER }}
           password: ${{ secrets.REMOTE_PASSWORD }}
           script: |
-            docker pull ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
-            docker stop gpt2_container || true
-            docker rm gpt2_container || true
-            docker run -d --name gpt2_container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
-            nginx -s reload
+            sudo docker pull ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
+            sudo docker stop gpt2_container || true
+            sudo docker rm gpt2_container || true
+            sudo docker run -d --name gpt2_container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
+            sudo nginx -s reload
