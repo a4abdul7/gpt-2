@@ -37,5 +37,5 @@ jobs:
             docker pull ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
             docker stop gpt2_container || true
             docker rm gpt2_container || true
-            docker run -d --name gpt2_container -p 80:80 ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
+            docker run -d --name gpt2_container -p 8000:8000 ${{ secrets.DOCKER_USERNAME }}/gpt2:latest
             nginx -s reload
